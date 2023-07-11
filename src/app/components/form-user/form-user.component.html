@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-content>
+        <h1>Update users</h1>
+        <div class="form-update">
+            <form [formGroup]="userForm" (ngSubmit)="save" *ngIf="showForm">
+                <mat-form-field>
+                    <mat-label>Enter your name</mat-label>
+                    <input formControlName="name" matInput placeholder="name" required name="name">
+                    <!-- <mat-error *ngIf="email.invalid">ERROR</mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter your email</mat-label>
+                    <input formControlName="email" matInput placeholder="pat@example.com" required name="email">
+                    <!-- <mat-error *ngIf="email.invalid">ERROR</mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter your password</mat-label>
+                    <input formControlName="password" matInput placeholder="pat@example.com" required name="password">
+                    <!-- <mat-error *ngIf="email.invalid">ERROR</mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter your role</mat-label>
+                    <input matInput formControlName="role"  placeholder="pat@example.com" required name="role">
+                    <!-- <mat-error *ngIf="email.invalid">ERROR</mat-error> -->
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Enter your avatar</mat-label>
+                    <input matInput formControlName="avatar" placeholder="pat@example.com" required name="avatar">
+                    <!-- <mat-error *ngIf="email.invalid">ERROR</mat-error> -->
+                </mat-form-field>
+            </form>
+            </div>
+    </mat-card-content>
+    <button (click)="getUser(1)" >Get user1</button>
+</mat-card>

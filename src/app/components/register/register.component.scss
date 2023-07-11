@@ -1,0 +1,14 @@
+.container-form{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div{
+        width: 350px;
+    }
+}
+form label, input{
+    display: block;
+    width: 100%;
+}

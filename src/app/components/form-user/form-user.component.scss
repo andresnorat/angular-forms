@@ -1,0 +1,19 @@
+
+
+  mat-card {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .form-update {
+    display: block;
+    width: 450px; 
+
+    mat-form-field{
+        display: block;
+        width: 100%;
+    }
+  }
