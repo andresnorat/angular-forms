@@ -1,0 +1,133 @@
+<mat-card>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div formGroupName="fullName">
+                <mat-form-field>
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput formControlName="name">
+                    <mat-icon *ngIf="nameField?.valid" matSuffix fontIcon="done"></mat-icon>
+                    <mat-icon *ngIf="nameField?.invalid && nameField?.touched   " matSuffix fontIcon="warning"></mat-icon>
+                  </mat-form-field>
+        
+                  <div class="message" *ngIf="nameField?.touched && nameField?.invalid">
+                      <mat-error  *ngIf="nameField?.hasError('required')">Este campo es requerido</mat-error>
+                  </div>
+        
+        
+                <p>
+                    Last: {{lastField?.value}}
+                    <input type="text" formControlName="last">
+                </p>
+            
+                <div *ngIf="lastField?.touched && lastField?.invalid">
+                    <p *ngIf="lastField?.hasError('required')">Campo requerido</p>
+                </div>
+           
+           
+           
+           
+            </div>
+            
+           
+            
+            <p>
+                <!-- Email: {{emailField.value}} -->
+                <input type="email" formControlName="email">
+            </p>
+            
+            <p>
+                <!-- Phone: {{phoneField.value}} -->
+                <input type="tel" formControlName="phone">
+            </p>
+            
+            <p>
+                <!-- Color: {{colorField.value}} -->
+                <input type="color" formControlName="color">
+            </p>
+            
+            <p>
+                <!-- Date: {{dateField.value}} -->
+                <input type="date" formControlName="date">
+            </p>
+            
+            <p>
+                <!-- Age: {{ageField.value}} -->
+                <input type="number" formControlName="age">
+            </p>
+            
+            <p>
+                <!-- Url: {{urlField.value}} -->
+                <input type="url" formControlName="url">
+            </p>
+            
+            
+            <p>
+                <!-- Category: {{categoryField.value}} -->
+                <select  formControlName="category">
+                    <option value="Category-1">Category-1</option>
+                    <option value="Category-2">Category-2</option>
+                    <option value="Category-3">Category-3</option>
+                    <option value="Category-4">Category-4</option>
+                </select>
+            </p>
+            
+            
+            <p>
+                <!-- Category: {{tagField.value}} -->
+                <select  formControlName="tag" multiple>
+                    <option value="tag-1">Tag</option>
+                    <option value="tag-2">Tag</option>
+                    <option value="tag-3">Tag</option>
+                    <option value="tag-4">Tag</option>
+                </select>
+            </p>
+            
+            
+            <p>
+                <!-- Agree: {{agreeField.value}} -->
+                <input type="checkbox" formControlName="agree">
+            </p>
+            
+            
+            <p>
+                <!-- Gender: {{genderField.value}} -->
+                <label>
+                    <input name="gender" type="radio" value="male" formControlName="gender">
+                     Male
+                </label>
+                <label>
+                    <input name="gender" type="radio" value="female" formControlName="gender">
+                     Female
+                </label>
+                <label>
+                    <input name="gender" type="radio" value="other" formControlName="gender">
+                     Other
+                </label>
+            </p>
+            
+            <p>
+                <!-- Zone: {{zoneField.value}} -->
+                <label>
+                    <input name="zone" type="radio" value="zone-1" formControlName="zone">
+                     Zona 1
+                </label>
+                <label>
+                    <input name="zone" type="radio" value="zone-2" formControlName="zone">
+                     Zona 2
+                </label>
+                <label>
+                    <input name="zone" type="radio" value="zone-3" formControlName="zone">
+                     Zona 3 
+                </label>
+            </p>
+            
+            <p>
+                <button type="submit" >Enviar</button>
+            </p>
+        
+        </form>
+        
+        
+    </mat-card-content>
+</mat-card>
+
