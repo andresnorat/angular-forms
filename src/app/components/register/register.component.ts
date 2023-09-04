@@ -33,12 +33,19 @@ export class RegisterComponent implements  OnInit {
     return this.formRegister.get('password');
   }
 
+  get confirmPassword(){
+    return this.formRegister.get('confirmPassword');
+
+  }
+
    buildForm(){
     this.formRegister = this.formBuilder.nonNullable.group({
       email: ['', [Validators.required, Validators.email],[]],
       password: ['', [Validators.required, MyValidators.validPassword]],
       confirmPassword:['', [Validators.required]]
-    },);
+    },{
+      validators: MyValidators.matchPasswords
+    });
   }
 
 
