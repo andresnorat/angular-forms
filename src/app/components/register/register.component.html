@@ -1,14 +1,47 @@
 <div class="container-form">
-    <div class="">
-        <h1>Registro</h1>
-        <form action="" [formGroup]="formRegister" (ngSubmit)="save()">
-                <label for="">Name</label>
+        <form [formGroup]="formRegister" (ngSubmit)="save()">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>Registro</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field>
+                                    <mat-label>Email</mat-label>
+                                    <input type="email" formControlName="email" matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field>
+                                    <mat-label>Password</mat-label>
+                                    <input type="password" formControlName="password" matInput>
+                                    <div *ngIf="password?.touched && password?.invalid" >
+                                        <mat-error *ngIf="password?.hasError('invalid_password')">Debe tener un número</mat-error>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field>
+                                    <mat-label>Confirm Password</mat-label>
+                                    <input type="password" formControlName="confirmPassword" matInput>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions >
+                        <button mat-raised-button type="submit" [disabled]="formRegister.invalid" >Registro</button>
+                    </mat-card-actions>
+                </mat-card>
+                <!-- <label for="">Name</label>
                 <input type="text" formControlName="name">
                 <p *ngIf="name?.touched && name?.hasError('required')">Este campo es requerido</p>
                 <label for="">Email</label>
                 <input type="email" formControlName="email">
-                <label for="">Avatar</label>
-                <input type="text" formControlName="image">
                 <mat-form-field appearance="fill">
                     <mat-label>Enter your password</mat-label>
                     <input matInput [type]="hide ? 'password' : 'text'">
@@ -20,8 +53,6 @@
                 <input type="password" formControlName="confirmPassword">
                 <div *ngIf="formRegister.errors">
                     <p *ngIf="formRegister.hasError('match_error')">La contraseña no concide</p>
-                </div>
-            <button type="submit">Enviar</button>
+                </div> -->
         </form> 
     </div>
-</div>

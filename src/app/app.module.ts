@@ -15,6 +15,7 @@ import { MatCardModule} from '@angular/material/card';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDatepickerModule} from '@angular/material/datepicker';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     MatInputModule,
     MatCardModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

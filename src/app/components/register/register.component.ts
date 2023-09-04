@@ -8,6 +8,7 @@ import { MyValidators } from '../../utils/validators'
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements  OnInit {
+
   hide = true;
 
   constructor
@@ -23,27 +24,25 @@ export class RegisterComponent implements  OnInit {
     
   }
 
-  get name() {
-    return this.formRegister.get('name');
+  get email() {
+    return this.formRegister.get('email');
+  }
+
+  
+  get password() {
+    return this.formRegister.get('password');
   }
 
    buildForm(){
     this.formRegister = this.formBuilder.nonNullable.group({
-      name: ['', [Validators.required], []],
-      email: ['', [Validators.required],[]],
-      image: ['', [Validators.required], []],
-      password: ['', [Validators.required],[]],
+      email: ['', [Validators.required, Validators.email],[]],
+      password: ['', [Validators.required, MyValidators.validPassword]],
       confirmPassword:['', [Validators.required]]
-    },
-      {
-        validators: MyValidators.matchPasswords
-      }
-    );
+    },);
   }
 
 
   save(){
     console.log(this.formRegister.value);
   }
-
 }
