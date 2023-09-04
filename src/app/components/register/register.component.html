@@ -1,44 +1,66 @@
 <div class="container-form">
-        <form [formGroup]="formRegister" (ngSubmit)="save()">
-                <mat-card>
-                    <mat-card-header>
-                        <mat-card-title>Registro</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <div class="row">
-                            <div class="col-xs">
-                                <mat-form-field>
-                                    <mat-label>Email</mat-label>
-                                    <input name="email" type="email" formControlName="email" matInput>
-                                </mat-form-field>
+    <form [formGroup]="formRegister" (ngSubmit)="save()">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Registro</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input name="email" type="email" formControlName="email" matInput>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input name="password" type="password" formControlName="password" matInput>
+                            <div *ngIf="password?.touched && password?.invalid">
+                                <mat-error *ngIf="password?.hasError('invalid_password')">Debe tener un
+                                    número</mat-error>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs">
-                                <mat-form-field>
-                                    <mat-label>Password</mat-label>
-                                    <input name="password" type="password" formControlName="password" matInput>
-                                    <div *ngIf="password?.touched && password?.invalid" >
-                                        <mat-error *ngIf="password?.hasError('invalid_password')">Debe tener un número</mat-error>
-                                    </div>
-                                </mat-form-field>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <mat-label>Confirm Password</mat-label>
+                            <input name="confirmPassword" type="password" formControlName="confirmPassword" matInput>
+                            <div *ngIf="confirmPassword?.touched && formRegister.errors">
+                                <mat-error *ngIf="formRegister?.hasError('match_password')">La contraseña no es
+                                    igual</mat-error>
                             </div>
-                        </div>  
-                        <div class="row">
-                            <div class="col-xs">
-                                <mat-form-field>
-                                    <mat-label>Confirm Password</mat-label>
-                                    <input  name="confirmPassword" type="password" formControlName="confirmPassword" matInput>
-                                    <div *ngIf="confirmPassword?.touched && formRegister.errors" >
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-radio-group formControlName="type" aria-label="Select an option">
+                            <mat-radio-button value="company">Company</mat-radio-button>
+                            <mat-radio-button value="customer">Customer</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field>
+                            <mat-label>Company Name</mat-label>
+                            <input placeholder="company" name="companyName" type="text" formControlName="companyName"
+                                matInput>
+                            <!-- <div *ngIf="confirmPassword?.touched && formRegister.errors" >
                                         <mat-error *ngIf="formRegister?.hasError('match_password')">La contraseña no es igual</mat-error>
-                                    </div>
-                                </mat-form-field>
-                            </div>
-                        </div>
-                    </mat-card-content>
-                    <mat-card-actions >
-                        <button mat-raised-button type="submit" [disabled]="formRegister.invalid">Registro</button>
-                    </mat-card-actions>
-                </mat-card>
-        </form> 
-    </div>
+                                    </div> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button type="submit" [disabled]="formRegister.invalid">Registro</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
